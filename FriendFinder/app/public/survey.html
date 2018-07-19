@@ -2,16 +2,21 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Survey</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+
 </head>
 
 <body>
@@ -30,46 +35,169 @@
                         <label for="icon_prefix">Name (Required)</label>
                     </div>
                 </div>
+
+            </form>
+        </div>
+        <div class="row">
+            <form action="#">
+                <div class="file-field input-field col s6">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <form class="col s6">
                 <div class="row">
-                    <form action="#">
-                        <div class="file-field input-field col s6">
-                            <div class="btn">
-                                <span>File</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
-                    </form>
+                    <label>
+                        <h4 class="black-text">Game of Thrones is overrated.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
                 </div>
                 <div class="row">
-                    <div class="col s6">
-                        <ol>
-                            <li>Game of Thrones is overrated
-                                <form action="#">
-                                    <p class="range-field">
-                                        <input type="range" id="test" min="0" max="5" />
-                                    </p>
-                                </form>
-                            </li>
-                        </ol>
-                        <!-- <form action="#">
-                            <p class="range-field">
-                                <input type="range" id="test5" min="1" max="5" />
-                            </p>
-                        </form> -->
-                    </div>
+                    <label>
+                        <h4 class="black-text">Love at first sight existis.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Stranger Things is overrated.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Snow is better than sand.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Letters are better than e-mail.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Cinnamon smells good.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">I would be the villain over the hero.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Old people are funny.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">The night is better than the day.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>
+                        <h4 class="black-text">Pineaple belongs on pizza.</h4>
+                    </label>
+                    <select>
+                        <option value="" disabled selected>Thoughts</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
                 </div>
             </form>
         </div>
     </div>
 
+</body>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--JQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+</script>
 </body>
 
 </html>
