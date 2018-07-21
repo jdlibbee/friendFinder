@@ -29,9 +29,9 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6" id="name">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="icon_prefix" type="text" class="validate">
+                        <input id="icon_prefix" type="text" class="validate name">
                         <label for="icon_prefix">Name (Required)</label>
                     </div>
                 </div>
@@ -41,9 +41,9 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6" id="image">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">camera_roll</i>
-                        <input id="icon_prefix" type="text" class="validate">
+                        <input id="icon_prefix" type="text" class="validate image">
                         <label for="icon_prefix">Image Link (Required)</label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <form class="col s6" id="questions">
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Game of Thrones is overrated.</h4>
+                        <h5 class="black-text">Game of Thrones is overrated.</h5>
                     </label>
                     <select id="q1">
                         <option value="" disabled selected>Thoughts</option>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Love at first sight exists.</h4>
+                        <h5 class="black-text">Love at first sight exists.</h5>
                     </label>
                     <select id="q2">
                         <option value="" disabled selected>Thoughts</option>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Stranger Things is overrated.</h4>
+                        <h5 class="black-text">Stranger Things is overrated.</h5>
                     </label>
                     <select id="q3">
                         <option value="" disabled selected>Thoughts</option>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Snow is better than sand.</h4>
+                        <h5 class="black-text">Snow is better than sand.</h5>
                     </label>
                     <select id="q4">
                         <option value="" disabled selected>Thoughts</option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Letters are better than e-mail.</h4>
+                        <h5 class="black-text">Letters are better than e-mail.</h5>
                     </label>
                     <select id="q5">
                         <option value="" disabled selected>Thoughts</option>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Cinnamon smells good.</h4>
+                        <h5 class="black-text">Cinnamon smells good.</h5>
                     </label>
                     <select id="q6">
                         <option value="" disabled selected>Thoughts</option>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">I would be the villain over the hero.</h4>
+                        <h5 class="black-text">I would be the villain over the hero.</h5>
                     </label>
                     <select id="q7">
                         <option value="" disabled selected>Thoughts</option>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Old people are funny.</h4>
+                        <h5 class="black-text">Old people are funny.</h5>
                     </label>
                     <select id="q8">
                         <option value="" disabled selected>Thoughts</option>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">The night is better than the day.</h4>
+                        <h5 class="black-text">The night is better than the day.</h5>
                     </label>
                     <select id="q9">
                         <option value="" disabled selected>Thoughts</option>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="row">
                     <label>
-                        <h4 class="black-text">Pineaple belongs on pizza.</h4>
+                        <h5 class="black-text">Pineaple belongs on pizza.</h5>
                     </label>
                     <select id="q10">
                         <option value="" disabled selected>Thoughts</option>
@@ -182,14 +182,14 @@
                         <option value="5">Strongly Agree</option>
                     </select>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" id="submit" name="action" data-target="modal1">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </form>
         </div>
-        <a href="">API Friends List</a>
+        <a href="/api/friends">API Friends List</a>
         <a>|</a>
-        <a href="">GitHub Repo</a>
+        <a href="https://github.com/jdlibbee/friendFinder">GitHub Repo</a>
     </div>
 
 
@@ -200,16 +200,32 @@
 </html>
 
 <script type="text/javascript">
-    $(".submit").on("click", function (event) {
+    $("#submit").on("click", function (event) {
         event.preventDefault();
 
         var newFriend = {
-            name: $("#name").val().trim(),
-            image: $("#image").val().trim(),
-            scores: $("#questions").val()
+            name: $(".name").val(),
+            image: $(".image").val(),
+            scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
         };
         console.log(newFriend);
 
+        $.post("/api/friends", newFriend, function (data) {
+
+            `<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>You Matched With:</h4>
+      <p>${friend.name}</p>
+      <img src='${friend.image}'>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>`
+
+        })
+        $(".name").val("Name (Required)");
+        $(".image").val("Image Link (Required)");
 
     })
 </script>

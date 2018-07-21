@@ -5,8 +5,6 @@ module.exports = function (app) {
         res.json(friends);
     });
     app.post("/api/friends", function (req, res) {
-        for (var i = 0; i < friends.length; i++) {
-            if (friends[i].scores)
-        }
+        friends.push(req.body);
     })
 }
