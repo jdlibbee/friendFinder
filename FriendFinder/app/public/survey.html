@@ -185,6 +185,16 @@
                 <button class="btn waves-effect waves-light" type="submit" id="submit" name="action" data-target="modal1">Submit
                     <i class="material-icons right">send</i>
                 </button>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h2>You Matched With:</h2>
+                        <h5 id="match"></h5>
+                        <img src="https://placeimg.com/640/480/tech" id="matchImg">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
             </form>
         </div>
         <a href="/api/friends">API Friends List</a>
@@ -211,21 +221,25 @@
         console.log(newFriend);
 
         $.post("/api/friends", newFriend, function (data) {
+            // $("#match").text(data.name);
+            // $("#matchImg").attr("src", data.photo);
 
-            `<div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>You Matched With:</h4>
-      <p>${friend.name}</p>
-      <img src='${friend.image}'>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>`
+            // $(".modal").modal("toggle");
+            // alert("Wait while we get your best friend!")
 
+
+            $(".name").val("Name (Required)");
+            $(".image").val("Image Link (Required)");
+            $("#q1").val("");
+            $("#q2").val("");
+            $("#q3").val("");
+            $("#q4").val("");
+            $("#q5").val("");
+            $("#q6").val("");
+            $("#q7").val("");
+            $("#q8").val("");
+            $("#q9").val("");
+            $("#q10").val("");
         })
-        $(".name").val("Name (Required)");
-        $(".image").val("Image Link (Required)");
-
     })
 </script>
