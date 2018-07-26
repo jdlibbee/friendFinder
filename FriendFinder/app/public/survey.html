@@ -6,10 +6,11 @@
     <title>Survey</title>
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -47,7 +48,6 @@
                         <label for="icon_prefix">Image Link (Required)</label>
                     </div>
                 </div>
-
             </form>
         </div>
         <div class="row">
@@ -185,16 +185,7 @@
                 <button class="btn waves-effect waves-light" type="submit" id="submit" name="action" data-target="modal1">Submit
                     <i class="material-icons right">send</i>
                 </button>
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h2>You Matched With:</h2>
-                        <h5 id="match"></h5>
-                        <img src="https://placeimg.com/640/480/tech" id="matchImg">
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
+
             </form>
         </div>
         <a href="/api/friends">API Friends List</a>
@@ -203,8 +194,16 @@
     </div>
 
 
-</body>
-
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h2>You Matched With:</h2>
+            <h5 id="match"></h5>
+            <img src="https://placeimg.com/640/480/tech" id="matchImg">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="closeModal" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -221,10 +220,16 @@
         console.log(newFriend);
 
         $.post("/api/friends", newFriend, function (data) {
-            // $("#match").text(data.name);
-            // $("#matchImg").attr("src", data.photo);
+            $("#match").text(data.name);
+            $("#matchImg").attr("src", data.photo);
 
             // $(".modal").modal("toggle");
+            $("#modal1").css("display", "block");
+            $("#modal1").css("top", "0");
+            $("#modal1").css("bottom", "0");
+            $("#modal1").css("z-index", "20");
+            $("body").css("background", "grey");
+
             // alert("Wait while we get your best friend!")
 
 
@@ -242,4 +247,10 @@
             $("#q10").val("");
         })
     })
+    $("#closeModal").on('click', function (event) {
+        event.preventDefault();
+        $("#modal1").css("display", "none");
+        $("body").css("background", "");
+    })
+
 </script>
